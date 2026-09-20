@@ -1,0 +1,24 @@
+PROCUREMENT POLICY: VENDOR ONBOARDING POLICY
+Department: Procurement
+Last Reviewed: 2026-03-05
+Policy Owner: Procurement Operations
+
+1. VENDOR REGISTRATION
+All new vendors must complete registration in the Vendor Management Portal, including a signed W-9 (or local tax equivalent), banking details, and a completed Vendor Risk Questionnaire before any purchase order can be issued.
+
+2. DUE DILIGENCE AND APPROVAL TIERS
+Vendors with an expected annual spend under $10,000 require business-unit-level approval only. Vendors between $10,000 and $100,000 require Procurement and Legal review. Vendors exceeding $100,000 in expected annual spend require a full due diligence review, including financial health checks and a compliance/sanctions screening, which typically takes 10-15 business days.
+
+3. CONTRACT REQUIREMENTS
+No vendor engagement may begin without an executed Master Services Agreement (MSA) or purchase order signed by an authorized approver. Verbal agreements or email confirmations do not constitute an authorized engagement.
+
+4. SOLE-SOURCE JUSTIFICATION
+Any vendor selected without a competitive bid process (sole-source) requires a written justification memo approved by the Procurement Director, regardless of contract value.
+
+5. VENDOR PERFORMANCE REVIEWS
+Vendors with contracts exceeding $50,000 annually are subject to a quarterly performance review, coordinated by the business owner and Procurement.
+
+6. OFFBOARDING
+When a vendor relationship ends, the business owner must submit a Vendor Offboarding Form to ensure final invoices are settled and system access (if any) is revoked within 5 business days.
+
+For questions not covered here, contact procurement-vendors@company.com.
