@@ -1,4 +1,4 @@
-#import chromadb
+import chromadb
 import time
 
 from networkx import difference
@@ -38,12 +38,34 @@ documents = [
 
 print ("documents:", documents[2])
 
-#client = chromadb.PersistentClient(path="./my_chroma_db")
+
+#just creating embeddings for the documents using the sentence transformer model
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
 embeddings = model.encode(documents).tolist()
 
-print("embeddings:", embeddings[2])
+#creating a collection in ChromaDB to store the embeddings  
+client = chromadb.EphemeralClient()
+collection = client.get_or_create_collection(
+    name="custom_model_collection"
+)
+collection.add(
+    ids=[str(i) for i in range(len(documents))],
+    embeddings=embeddings,
+    documents=documents)
+
+input_text = input("Enter the sentence you want to compare: ")
+query_embedding = model.encode([input_text]).tolist()
+query_results = collection.query(
+    query_embeddings=query_embedding,n_results=3,include=["distances","documents"]
+)
+
+print("query_results:", query_results)
+
+for doc_id, distance, document in zip(query_results["ids"][0], query_results["distances"][0], query_results["documents"][0]):
+    print(f"[{doc_id}] (distance: {distance:.4f}) {document}")
+
+"""print("embeddings:", embeddings[2])
 print("embeddings length:", len(embeddings[2]))
 stopwatch = time.time()
 for num1 in range(0, documents.__len__()-1):
@@ -60,4 +82,4 @@ for num1 in range(0, documents.__len__()-1):
             sum_difference = sum(abs(embeddings[int(query1)][i] - embeddings[int(query2)][i]) for i in range(len(embeddings[2])))
             print(f"Total difference between sentence {query1} and sentence {query2}: {sum_difference}")
 stopwatch = time.time() - stopwatch
-print(f"Time taken: {stopwatch}")
+print(f"Time taken: {stopwatch}")"""
