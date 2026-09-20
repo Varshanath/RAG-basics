@@ -65,6 +65,10 @@ print("query_results:", query_results)
 for doc_id, distance, document in zip(query_results["ids"][0], query_results["distances"][0], query_results["documents"][0]):
     print(f"[{doc_id}] (distance: {distance:.4f}) {document}")
 
+augmented_query=input_text + " " + " ".join([document for document in query_results["documents"][0]])
+print("\nAugmented Query:", augmented_query)
+
+
 """print("embeddings:", embeddings[2])
 print("embeddings length:", len(embeddings[2]))
 stopwatch = time.time()
