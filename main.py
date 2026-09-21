@@ -1,6 +1,6 @@
 import chromadb
 import time
-import anthropic
+import ollama
 
 from networkx import difference
 from sentence_transformers import SentenceTransformer
@@ -69,6 +69,17 @@ for doc_id, distance, document in zip(query_results["ids"][0], query_results["di
 
 augmented_query=input_text + " " + " ".join([document for document in query_results["documents"][0]])
 print("\nAugmented Query:", augmented_query)
+
+
+#agent to get the response from the augmented query using ollama API
+user_prompt = input("Enter your prompt: ")
+
+response = ollama.chat(model='llama2', messages=[
+    {"role": "system", "content": "You are a policy chatbot for official purpose.Donot give any political response."},
+    {"role": "user", "content": augmented_query}])
+
+print(response['message']['content'])
+
 
 
 # inefficient way to calculate the difference between two embeddings, but it works for small data sets. For larger data sets, consider using a more efficient method like cosine similarity or Euclidean distance.
