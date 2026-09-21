@@ -1,9 +1,23 @@
 import chromadb
 import time
 import ollama
+import os
+import json
+from datetime import datetime
 
 from networkx import difference
 from sentence_transformers import SentenceTransformer
+
+TELEMETRY_DIR = "Telemetry"
+
+
+def log_telemetry(entry: dict):
+    os.makedirs(TELEMETRY_DIR, exist_ok=True)
+    filename = datetime.now().strftime("%Y-%m-%d") + ".jsonl"
+    filepath = os.path.join(TELEMETRY_DIR, filename)
+    record = {"timestamp": datetime.now().isoformat(), **entry}
+    with open(filepath, "a", encoding="utf-8") as f:
+        f.write(json.dumps(record, ensure_ascii=False) + "\n")
 
 documents = [
     "The company reimburses employee travel expenses only when the trip is approved in advance and supported by receipts.",
@@ -37,7 +51,7 @@ documents = [
     "Conflicts of interest must be disclosed to HR within five business days of becoming aware of them.",
     "All company data must be backed up daily and retained for a minimum of seven years."]
 
-print ("documents:", documents[2])
+#print ("documents:", documents[2])
 
 #havent done chunking here as the data set is very small, but for larger data sets, chunking is recommended to avoid memory issues and improve performance.
 #just creating embeddings for the documents using the sentence transformer model
@@ -56,7 +70,7 @@ collection.add(
     embeddings=embeddings,
     documents=documents)
 
-input_text = input("Enter the sentence you want to compare: ")
+input_text = input("Enter your query: ")
 query_embedding = model.encode([input_text]).tolist()
 query_results = collection.query(
     query_embeddings=query_embedding,n_results=3,include=["distances","documents"]
@@ -79,6 +93,19 @@ response = ollama.chat(model='llama2', messages=[
     {"role": "user", "content": augmented_query}])
 
 print(response['message']['content'])
+
+
+#Telemetry logging to log the query, retrieved documents, augmented query, and response in a JSONL file for future analysis.
+log_telemetry({
+    "query": input_text,
+    "retrieved_documents": [
+        {"id": doc_id, "distance": distance, "document": document}
+        for doc_id, distance, document in zip(
+            query_results["ids"][0], query_results["distances"][0], query_results["documents"][0])
+    ],
+    "augmented_query": augmented_query,
+    "response": response['message']['content'],
+})
 
 
 
