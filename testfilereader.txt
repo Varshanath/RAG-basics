@@ -1,3 +1,61 @@
-This is a sample text file for testing file_reader.py.
-It has a few lines of plain text.
-Each line will be printed by the script, with extra whitespace stripped.
+Employee Handbook Overview
+
+Welcome to the organization. This handbook is intended to give every employee a clear picture of how the company operates, what is expected of them, and what they can expect in return. It is not a legal contract, but it reflects the standards, values, and procedures that guide day-to-day work across every department. Employees are encouraged to read this document carefully and to reach out to Human Resources with any questions about how these policies apply to their specific role.
+
+Company Culture and Values
+
+The organization was founded on the belief that clear communication, mutual respect, and consistent accountability produce better outcomes than rigid hierarchy alone. Every team, regardless of size or function, is expected to operate with transparency about goals, timelines, and blockers. Managers are expected to give employees the context they need to make good decisions rather than simply issuing instructions. In turn, employees are expected to raise concerns early, ask for help when needed, and take ownership of their commitments.
+
+Diversity and inclusion are treated as operational priorities, not just values statements. Hiring panels are trained to reduce bias in interviews, and promotion decisions are reviewed by a cross-functional committee to ensure consistency across teams. Employees who witness discrimination or harassment are strongly encouraged to report it through the confidential ethics hotline or directly to Human Resources, and retaliation against anyone who reports in good faith is strictly prohibited.
+
+Working Hours and Flexibility
+
+Standard working hours are nine in the morning to five in the evening, Monday through Friday, though many teams operate on flexible schedules as long as core collaboration hours are maintained. Core hours are typically between eleven in the morning and three in the afternoon, when employees are expected to be reachable for meetings and urgent coordination. Outside of core hours, employees may adjust their schedule to fit personal circumstances, provided their manager is informed and team commitments are met.
+
+Remote work is supported for most roles, subject to the security and equipment requirements outlined in the IT policy. Employees who work remotely on a regular basis should establish a dedicated workspace and ensure they have a stable internet connection capable of supporting video calls. Hybrid arrangements, where employees split time between the office and home, are the most common setup and are negotiated individually with each employee's manager.
+
+Compensation and Benefits
+
+Salaries are reviewed annually, typically in the first quarter of the fiscal year, and are benchmarked against industry data for similar roles in similar markets. Performance during the prior year, market conditions, and internal equity are all factored into salary adjustments. Bonuses, where applicable, are tied to a combination of individual performance and overall company results, and the formula for calculating bonus payouts is shared with employees at the start of each fiscal year so expectations are clear from day one.
+
+Health insurance is provided to all full-time employees starting on their first day of employment, with coverage extending to spouses, domestic partners, and dependent children. The company covers the majority of the premium cost, with employees responsible for a modest monthly contribution deducted from payroll. Dental and vision coverage are offered as optional add-ons at a low additional cost. Employees are automatically enrolled in the company's retirement savings plan after ninety days of employment, with the option to opt out or adjust their contribution percentage at any time through the benefits portal.
+
+Leave and Time Off
+
+Employees accrue paid time off based on tenure, starting at fifteen days per year and increasing to twenty after three years of service and twenty-five after seven years. Time off requests should be submitted through the internal scheduling system at least one week in advance for planned leave, though the company recognizes that emergencies happen and does not require advance notice for sick leave or urgent family matters.
+
+Parental leave provides twelve weeks of paid time off for the primary caregiver and six weeks for the secondary caregiver, regardless of gender, applicable to birth, adoption, or foster placement. Employees returning from parental leave are guaranteed the right to return to their previous role or an equivalent position with the same pay and responsibilities. Bereavement leave of up to five days is available for the loss of an immediate family member, with additional unpaid leave available upon request.
+
+Travel and Expense Policy
+
+Business travel must be approved in advance by the employee's manager, and bookings should go through the company's designated travel platform whenever possible to take advantage of negotiated corporate rates. Employees are expected to choose reasonable accommodations and transportation options rather than the cheapest or most luxurious available, striking a balance between cost control and comfort on longer trips.
+
+All expenses must be submitted with itemized receipts within thirty days of the trip's conclusion. Expenses without adequate documentation may be delayed or rejected during the reimbursement process. Alcohol is only reimbursable in the context of client entertainment and is subject to a per-person spending cap. Personal expenses incurred during business travel, such as entertainment unrelated to work or excessive room service, are not reimbursable and should not be included in expense reports.
+
+Information Technology and Security
+
+All employees are issued a company laptop configured with standard security software, including disk encryption and endpoint monitoring. Personal devices may be used to access email and calendar applications, but access to internal systems containing sensitive data requires a company-managed device. Multi-factor authentication is mandatory for all accounts that touch customer or financial data, and passwords must meet minimum complexity requirements and be rotated periodically.
+
+Software installation on company devices requires approval from the IT security team to prevent the introduction of unvetted or vulnerable applications into the corporate environment. Employees who need specialized software for their role should submit a request through the IT service desk, and approved requests are typically fulfilled within two business days. Any suspected security incident, including phishing attempts, lost devices, or unusual account activity, must be reported to the security team immediately so it can be investigated and contained.
+
+Confidentiality and Data Protection
+
+Employees routinely have access to information that is confidential to the company, its customers, or its partners. This includes financial data, product roadmaps, customer records, and internal communications. Employees are expected to handle this information with care, sharing it only with colleagues who have a legitimate business need and never with unauthorized external parties.
+
+Customer data in particular is subject to strict handling requirements under applicable privacy regulations. Employees who work with customer data must complete annual privacy training and are prohibited from exporting customer records to personal devices or unapproved third-party tools. Violations of data handling policy are treated seriously and may result in disciplinary action up to and including termination, depending on the severity and intent behind the violation.
+
+Performance Management
+
+Performance is reviewed formally twice a year, with informal check-ins encouraged on a monthly or biweekly basis depending on the team's preference. Reviews are based on a combination of self-assessment, manager assessment, and peer feedback, giving a rounded picture of an employee's contributions and areas for growth. Goals are set collaboratively at the start of each review cycle and revisited throughout the period to account for shifting priorities.
+
+Employees who are not meeting expectations are typically placed on a structured improvement plan with clear, measurable milestones and a defined timeline, usually thirty to ninety days depending on the nature of the gap. The goal of these plans is genuine improvement, and managers are expected to provide the coaching, resources, and feedback necessary to give employees a fair opportunity to succeed. Only when improvement plans do not result in the necessary progress does the company consider further action.
+
+Procurement and Vendor Relationships
+
+Any new vendor relationship must go through the procurement team's onboarding process before a contract is signed or an invoice is paid. This process includes a review of the vendor's financial stability, security practices, and alignment with the company's ethical sourcing standards. Contracts above a certain dollar threshold require additional sign-off from both the legal team and a member of the executive leadership team.
+
+Employees are not permitted to enter into verbal or informal agreements with vendors on behalf of the company. All commitments, including pricing, deliverables, and timelines, must be documented in a written contract reviewed by procurement and legal. This protects both the company and the vendor by ensuring expectations are clear and enforceable from the outset.
+
+Closing Notes
+
+This handbook is reviewed and updated periodically to reflect changes in the law, industry best practices, and the evolving needs of the organization. Employees will be notified whenever significant changes are made, and the most current version is always available on the internal company portal. Questions about any policy described here should be directed to Human Resources, who are available to clarify how these guidelines apply to specific situations.

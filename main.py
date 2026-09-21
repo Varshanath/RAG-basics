@@ -70,18 +70,6 @@ for doc_id, distance, document in zip(query_results["ids"][0], query_results["di
 augmented_query=input_text + " " + " ".join([document for document in query_results["documents"][0]])
 print("\nAugmented Query:", augmented_query)
 
-#sending the augmented query to Claude to get a grounded answer
-llm_client = anthropic.Anthropic()
-
-llm_response = llm_client.messages.create(
-    model="claude-opus-5",
-    max_tokens=16000,
-    system="Answer the user's question using only the provided company policy excerpts. If the excerpts don't contain the answer, say so explicitly.",
-    messages=[{"role": "user", "content": augmented_query}]
-)
-
-answer = next((block.text for block in llm_response.content if block.type == "text"), "")
-print("\nAnswer:", answer)
 
 # inefficient way to calculate the difference between two embeddings, but it works for small data sets. For larger data sets, consider using a more efficient method like cosine similarity or Euclidean distance.
 """print("embeddings:", embeddings[2])
