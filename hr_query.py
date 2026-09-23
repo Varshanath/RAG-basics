@@ -1,4 +1,4 @@
-import chromadb
+"""import chromadb
 from sentence_transformers import SentenceTransformer
 
 model = SentenceTransformer('all-MiniLM-L6-v2')
@@ -20,4 +20,4 @@ for doc_id, distance, document, metadata in zip(
     results["ids"][0], results["distances"][0], results["documents"][0], results["metadatas"][0]
 ):
     print(f"\n[{doc_id}] (distance: {distance:.4f}) department={metadata['department']}")
-    print(document)
+    print(document)"""
