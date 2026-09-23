@@ -1,6 +1,24 @@
 import chromadb
 import ollama
+import os
+import json
+from datetime import datetime
 from sentence_transformers import SentenceTransformer
+
+TELEMETRY_DIR = "Telemetry"
+
+
+# Writes one JSON line per chat turn into Telemetry/<status>_<today's date>.jsonl -
+# success and failed turns go to separate files so failures are easy to spot without
+# filtering through normal traffic.
+def log_telemetry(status: str, entry: dict):
+    os.makedirs(TELEMETRY_DIR, exist_ok=True)
+    filename = f"{status}_{datetime.now().strftime('%Y-%m-%d')}.jsonl"
+    filepath = os.path.join(TELEMETRY_DIR, filename)
+    record = {"timestamp": datetime.now().isoformat(), **entry}
+    with open(filepath, "a", encoding="utf-8") as f:
+        f.write(json.dumps(record, ensure_ascii=False) + "\n")
+
 
 # Embedding model used to turn text into vectors. Must be the SAME model that was
 # used to embed the documents in ingest_documents.py/pdf_chunker.py, otherwise the
@@ -59,13 +77,30 @@ while True:
 
     conversation_history.append({"role": "user", "content": user_query})
 
+    sources = [
+        {"source": meta["source"], "department": meta["department"]}
+        for meta in retrieved_metadatas
+    ]
+
     # Sends the fresh system prompt (with this turn's context) plus the full
     # conversation history so far, so the model can use earlier turns for context
     # (e.g. understanding a follow-up question like "what about sick leave?").
-    response = ollama.chat(model='llama2', messages=[
-        {"role": "system", "content": system_message},
-        *conversation_history,
-    ])
+    # Wrapped in try/except since this call can fail (e.g. Ollama not running, or
+    # the model not pulled) - logged separately from successful turns so failures
+    # are easy to spot in the telemetry logs.
+    try:
+        response = ollama.chat(model='llama2', messages=[
+            {"role": "system", "content": system_message},
+            *conversation_history,
+        ])
+    except Exception as e:
+        print(f"Bot: Sorry, something went wrong while generating a response. ({e})\n")
+        log_telemetry("failed", {
+            "query": user_query,
+            "retrieved_sources": sources,
+            "error": str(e),
+        })
+        continue
 
     answer = response['message']['content']
     print(f"Bot: {answer}\n")
@@ -76,6 +111,12 @@ while True:
     for i, meta in enumerate(retrieved_metadatas, start=1):
         print(f"  [{i}] {meta['source']} (department: {meta['department']})")
     print()
+
+    log_telemetry("success", {
+        "query": user_query,
+        "retrieved_sources": sources,
+        "answer": answer,
+    })
 
     # Save the assistant's reply into history too, so it's included in the next
     # turn's messages and the conversation stays coherent.
